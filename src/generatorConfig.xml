@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+
+<generatorConfiguration>
+	<!-- 数据库连接驱动 -->
+    <classPathEntry location="C:\Users\Administrator\Desktop\mysql-connector-java-5.1.45-bin.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+		<!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/fxb" userId="root"
+                        password="root"/>
+		<!-- 生产实体类 -->
+        <javaModelGenerator targetPackage="com.eduask.model" targetProject="ssm-mysql/src">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+		<!-- 生成映射文件 -->
+        <sqlMapGenerator targetPackage="com.eduask.mapper" targetProject="ssm-mysql/src">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+		<!-- 生成mapper类 -->
+        <javaClientGenerator targetPackage="com.eduask.dao" targetProject="ssm-mysql/src" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="student"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>
